@@ -55,11 +55,7 @@ export function UserPage({
   }
   return (
     <UserContainer>
-      <UserList
-        background="none"
-        key={currentUser.id}
-        to={`users/${currentUser.id}`}
-      >
+      <UserList background="none" key={currentUser.id} to="#">
         <div>
           <Img className="user" src={currentUser.avatar} alt="" />
         </div>
