@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { useParams, Link, useRouteMatch } from 'react-router-dom';
+import { useParams, useRouteMatch } from 'react-router-dom';
 import { useInjectSaga } from 'utils/injectSaga';
 import { loadPosts, loadCurrentUser } from 'containers/App/actions';
 import {
@@ -19,7 +19,12 @@ import {
   makeSelectPosts,
   makeSelectCurrentUser,
 } from 'containers/App/selectors';
+import Img from 'components/Img';
 import saga from './saga';
+import UserList from '../UsersPage/UserList';
+import PostList from './PostList';
+import UserContainer from './UserContainer';
+import Wrapper from './Wrapper';
 const key = 'user';
 
 export function UserPage({
@@ -52,19 +57,33 @@ export function UserPage({
     return <div>Something went wrong, please try again!</div>;
   }
   return (
-    <div>
-      <div>{currentUser.name}</div>
-      {posts.map(post => (
-        <Link key={post.id} to={`${url}/post/${post.id}`}>
-          <div>{post.createdAt}</div>
-          <div>{post.content}</div>
-          <div>{post.editedAt}</div>
-          <div>
-            <img src={post.image} alt="" />
-          </div>
-        </Link>
-      ))}
-    </div>
+    <UserContainer>
+      <UserList key={currentUser.id} to={`users/${currentUser.id}`}>
+        <div>
+          <Img className="user" src={currentUser.avatar} alt="" />
+        </div>
+        <h3>{currentUser.name}</h3>
+        <div>Id:{currentUser.id}</div>
+        <div>Created at: {currentUser.createdAt}</div>
+        <div>Phone: {currentUser.phone}</div>
+        <div>City: {currentUser.city}</div>
+        <div>Role: {currentUser.role}</div>
+      </UserList>
+      <Wrapper>
+        {posts.map(post => (
+          <PostList key={post.id} to={`${url}/post/${post.id}`}>
+            <Img src={post.image} alt="" />
+            <div>
+              <div>Id: {post.id}</div>
+              <div>Created At: {post.createdAt}</div>
+              <div>Content: {post.content}</div>
+              <div>Edited At: {post.editedAt}</div>
+            </div>
+            <div />
+          </PostList>
+        ))}
+      </Wrapper>
+    </UserContainer>
   );
 }
 
