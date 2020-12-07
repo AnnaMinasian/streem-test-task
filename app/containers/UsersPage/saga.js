@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { LOAD_USERS } from 'containers/App/constants';
-import { usersLoaded, usersLoadingError } from 'containers/App/actions';
+import { usersLoaded, dataLoadingError } from 'containers/App/actions';
 
 export function* getUsers() {
   try {
@@ -11,7 +11,7 @@ export function* getUsers() {
     );
     yield put(usersLoaded(users));
   } catch (err) {
-    yield put(usersLoadingError(err));
+    yield put(dataLoadingError(err));
   }
 }
 

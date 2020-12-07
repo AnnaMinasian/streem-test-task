@@ -11,4 +11,9 @@
 
 export const LOAD_USERS = 'LOAD_USERS';
 export const LOAD_USERS_SUCCESS = 'boilerplate/App/LOAD_USERS_SUCCESS';
-export const LOAD_USERS_ERROR = 'boilerplate/App/LOAD_USERS_ERROR';
+export const LOAD_DATA_ERROR = 'boilerplate/App/LOAD_DATA_ERROR';
+export const LOAD_POSTS = 'LOAD_POSTS';
+export const LOAD_POSTS_SUCCESS = 'boilerplate/App/LOAD_POSTS_SUCCESS';
+export const LOAD_CURRENT_USER = 'LOAD_CURRENT_USER';
+export const LOAD_CURRENT_USER_SUCCESS =
+  'boilerplate/App/LOAD_CURRENT_USER_SUCCESS';

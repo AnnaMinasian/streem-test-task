@@ -1,4 +1,12 @@
-import { LOAD_USERS, LOAD_USERS_SUCCESS, LOAD_USERS_ERROR } from './constants';
+import {
+  LOAD_USERS,
+  LOAD_USERS_SUCCESS,
+  LOAD_DATA_ERROR,
+  LOAD_POSTS,
+  LOAD_POSTS_SUCCESS,
+  LOAD_CURRENT_USER,
+  LOAD_CURRENT_USER_SUCCESS,
+} from './constants';
 
 export function loadUsers() {
   return {
@@ -13,9 +21,37 @@ export function usersLoaded(users) {
   };
 }
 
-export function usersLoadingError(error) {
+export function dataLoadingError(error) {
   return {
-    type: LOAD_USERS_ERROR,
+    type: LOAD_DATA_ERROR,
     error,
+  };
+}
+
+export function loadPosts(userId) {
+  return {
+    type: LOAD_POSTS,
+    userId,
+  };
+}
+
+export function postsLoaded(posts) {
+  return {
+    type: LOAD_POSTS_SUCCESS,
+    posts,
+  };
+}
+
+export function loadCurrentUser(userId) {
+  return {
+    type: LOAD_CURRENT_USER,
+    userId,
+  };
+}
+
+export function currentUserLoaded(currentUser) {
+  return {
+    type: LOAD_CURRENT_USER_SUCCESS,
+    currentUser,
   };
 }

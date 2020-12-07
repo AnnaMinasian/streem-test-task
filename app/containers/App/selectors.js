@@ -27,9 +27,21 @@ const makeSelectError = () =>
     selectGlobal,
     globalState => globalState.error,
   );
+const makeSelectPosts = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.posts,
+  );
+const makeSelectCurrentUser = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.currentUser,
+  );
 export {
   makeSelectLocation,
   makeSelectUsers,
   makeSelectLoading,
   makeSelectError,
+  makeSelectPosts,
+  makeSelectCurrentUser,
 };

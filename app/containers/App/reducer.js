@@ -1,5 +1,13 @@
 import produce from 'immer';
-import { LOAD_USERS, LOAD_USERS_ERROR, LOAD_USERS_SUCCESS } from './constants';
+import {
+  LOAD_USERS,
+  LOAD_DATA_ERROR,
+  LOAD_USERS_SUCCESS,
+  LOAD_POSTS,
+  LOAD_POSTS_SUCCESS,
+  LOAD_CURRENT_USER,
+  LOAD_CURRENT_USER_SUCCESS,
+} from './constants';
 
 export const initialState = {
   users: [],
@@ -22,9 +30,25 @@ const appReducer = (state = initialState, action) =>
         draft.loading = false;
         draft.users = action.users;
         break;
-      case LOAD_USERS_ERROR:
+      case LOAD_DATA_ERROR:
         draft.error = action.error;
         draft.loading = false;
+        break;
+      case LOAD_POSTS:
+        draft.loading = true;
+        draft.error = false;
+        break;
+      case LOAD_POSTS_SUCCESS:
+        draft.loading = false;
+        draft.posts = action.posts;
+        break;
+      case LOAD_CURRENT_USER:
+        draft.loading = true;
+        draft.error = false;
+        break;
+      case LOAD_CURRENT_USER_SUCCESS:
+        draft.loading = false;
+        draft.currentUser = action.currentUser;
         break;
     }
   });
