@@ -21,10 +21,10 @@ export function PostPage({ loading, error, currentPost, onLoadCurrentPost }) {
   useInjectSaga({ key, saga });
   const { userId, postId } = useParams();
   useEffect(() => {
-    if (!loading && Object.keys(currentPost).length === 0) {
+    if (!loading) {
       onLoadCurrentPost(userId, postId);
     }
-  });
+  }, []);
   if (error) return `Error! ${error}`;
   if (loading) {
     return <LoadingIndicator />;

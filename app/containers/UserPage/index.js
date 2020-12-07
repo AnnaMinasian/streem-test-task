@@ -40,15 +40,11 @@ export function UserPage({
   const { userId } = useParams();
   const { url } = useRouteMatch();
   useEffect(() => {
-    if (
-      !loading &&
-      posts.length === 0 &&
-      Object.keys(currentUser).length === 0
-    ) {
+    if (!loading) {
       onLoadCurrentUser(userId);
       onLoadPosts(userId);
     }
-  });
+  }, []);
   if (error) return `Error! ${error}`;
   if (loading) {
     return <LoadingIndicator />;
