@@ -6,6 +6,8 @@ import {
   LOAD_POSTS_SUCCESS,
   LOAD_CURRENT_USER,
   LOAD_CURRENT_USER_SUCCESS,
+  LOAD_CURRENT_POST,
+  LOAD_CURRENT_POST_SUCCESS,
 } from './constants';
 
 export function loadUsers() {
@@ -53,5 +55,20 @@ export function currentUserLoaded(currentUser) {
   return {
     type: LOAD_CURRENT_USER_SUCCESS,
     currentUser,
+  };
+}
+
+export function loadCurrentPost(userId, postId) {
+  return {
+    type: LOAD_CURRENT_POST,
+    userId,
+    postId,
+  };
+}
+
+export function currentPostLoaded(currentPost) {
+  return {
+    type: LOAD_CURRENT_POST_SUCCESS,
+    currentPost,
   };
 }

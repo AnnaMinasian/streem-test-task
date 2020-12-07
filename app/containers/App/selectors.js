@@ -37,6 +37,11 @@ const makeSelectCurrentUser = () =>
     selectGlobal,
     globalState => globalState.currentUser,
   );
+const makeSelectCurrentPost = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.currentPost,
+  );
 export {
   makeSelectLocation,
   makeSelectUsers,
@@ -44,4 +49,5 @@ export {
   makeSelectError,
   makeSelectPosts,
   makeSelectCurrentUser,
+  makeSelectCurrentPost,
 };

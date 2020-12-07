@@ -7,6 +7,8 @@ import {
   LOAD_POSTS_SUCCESS,
   LOAD_CURRENT_USER,
   LOAD_CURRENT_USER_SUCCESS,
+  LOAD_CURRENT_POST,
+  LOAD_CURRENT_POST_SUCCESS,
 } from './constants';
 
 export const initialState = {
@@ -49,6 +51,14 @@ const appReducer = (state = initialState, action) =>
       case LOAD_CURRENT_USER_SUCCESS:
         draft.loading = false;
         draft.currentUser = action.currentUser;
+        break;
+      case LOAD_CURRENT_POST:
+        draft.loading = true;
+        draft.error = false;
+        break;
+      case LOAD_CURRENT_POST_SUCCESS:
+        draft.loading = false;
+        draft.currentPost = action.currentPost;
         break;
     }
   });

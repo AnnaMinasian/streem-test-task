@@ -14,6 +14,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import UsersPage from 'containers/UsersPage/Loadable';
 import UserPage from 'containers/UserPage/Loadable';
+import PostPage from 'containers/PostPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
 
@@ -24,6 +25,7 @@ export default function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/users" component={UsersPage} />
         <Route exact path="/users/:userId" component={UserPage} />
+        <Route exact path="/users/:userId/post/:postId" component={PostPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

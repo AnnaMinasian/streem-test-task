@@ -17,3 +17,6 @@ export const LOAD_POSTS_SUCCESS = 'boilerplate/App/LOAD_POSTS_SUCCESS';
 export const LOAD_CURRENT_USER = 'LOAD_CURRENT_USER';
 export const LOAD_CURRENT_USER_SUCCESS =
   'boilerplate/App/LOAD_CURRENT_USER_SUCCESS';
+export const LOAD_CURRENT_POST = 'LOAD_CURRENT_POST';
+export const LOAD_CURRENT_POST_SUCCESS =
+  'boilerplate/App/LOAD_CURRENT_POST_SUCCESS';
