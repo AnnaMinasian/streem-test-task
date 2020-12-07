@@ -8,19 +8,23 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
+import Button from 'components/Button';
 import messages from './messages';
 import Wrapper from './Wrapper';
 
 export default function HomePage() {
   return (
     <Wrapper>
-      <h3>
-        <FormattedMessage {...messages.header} />
-      </h3>
+      <h1>
+        <FormattedMessage {...messages.header1} />
+      </h1>
+      <h2>
+        <FormattedMessage {...messages.header2} />
+      </h2>
       <Link to="/users">
-        <button type="button">
+        <Button type="button">
           <FormattedMessage {...messages.button} />
-        </button>
+        </Button>
       </Link>
     </Wrapper>
   );
