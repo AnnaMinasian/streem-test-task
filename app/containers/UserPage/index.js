@@ -34,7 +34,11 @@ export function UserPage({
   const { userId } = useParams();
   const { url } = useRouteMatch();
   useEffect(() => {
-    if (!loading && posts.length === 0) {
+    if (
+      !loading &&
+      posts.length === 0 &&
+      Object.keys(currentUser).length === 0
+    ) {
       onLoadCurrentUser(userId);
       onLoadPosts(userId);
     }
