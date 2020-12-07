@@ -22,6 +22,7 @@ import saga from './saga';
 import Wrapper from './Wrapper';
 import UserList from './UserList';
 import UsersContainer from './UsersContainer';
+import LoadingIndicator from '../../components/LoadingIndicator';
 
 const key = 'users';
 
@@ -34,7 +35,7 @@ export function UsersPage({ loading, error, users, onLoadUsers }) {
   });
   if (error) return `Error! ${error}`;
   if (loading) {
-    return null;
+    return <LoadingIndicator />;
   }
 
   if (error !== false) {

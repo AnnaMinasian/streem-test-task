@@ -13,6 +13,7 @@ import {
 } from 'containers/App/selectors';
 import Wrapper from './Wrapper';
 import saga from './saga';
+import LoadingIndicator from '../../components/LoadingIndicator';
 
 const key = 'post';
 
@@ -26,7 +27,7 @@ export function PostPage({ loading, error, currentPost, onLoadCurrentPost }) {
   });
   if (error) return `Error! ${error}`;
   if (loading) {
-    return null;
+    return <LoadingIndicator />;
   }
 
   if (error !== false) {

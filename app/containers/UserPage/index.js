@@ -25,6 +25,7 @@ import UserList from '../UsersPage/UserList';
 import PostList from './PostList';
 import UserContainer from './UserContainer';
 import Wrapper from './Wrapper';
+import LoadingIndicator from '../../components/LoadingIndicator';
 const key = 'user';
 
 export function UserPage({
@@ -50,7 +51,7 @@ export function UserPage({
   });
   if (error) return `Error! ${error}`;
   if (loading) {
-    return null;
+    return <LoadingIndicator />;
   }
 
   if (error !== false) {
@@ -58,7 +59,11 @@ export function UserPage({
   }
   return (
     <UserContainer>
-      <UserList key={currentUser.id} to={`users/${currentUser.id}`}>
+      <UserList
+        background="none"
+        key={currentUser.id}
+        to={`users/${currentUser.id}`}
+      >
         <div>
           <Img className="user" src={currentUser.avatar} alt="" />
         </div>
