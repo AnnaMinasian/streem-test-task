@@ -4,6 +4,7 @@ const UsersContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  justify-content: space-around;
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 80px;
