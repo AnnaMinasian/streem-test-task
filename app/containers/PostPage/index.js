@@ -11,6 +11,7 @@ import {
   makeSelectError,
   makeSelectCurrentPost,
 } from 'containers/App/selectors';
+import Wrapper from './Wrapper';
 import saga from './saga';
 
 const key = 'post';
@@ -31,7 +32,18 @@ export function PostPage({ loading, error, currentPost, onLoadCurrentPost }) {
   if (error !== false) {
     return <div>Something went wrong, please try again!</div>;
   }
-  return <h1>{currentPost.content}</h1>;
+  return (
+    <Wrapper>
+      <img src={currentPost.image} alt="" />
+      <div>
+        <div>Id: {currentPost.id}</div>
+        <div>Created At: {currentPost.createdAt}</div>
+        <div>Content: {currentPost.content}</div>
+        <div>Edited At: {currentPost.editedAt}</div>
+      </div>
+      <div />
+    </Wrapper>
+  );
 }
 
 PostPage.propTypes = {
