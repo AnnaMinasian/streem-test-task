@@ -11,14 +11,17 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useInjectSaga } from 'utils/injectSaga';
-import { Link } from 'react-router-dom';
 import {
   makeSelectUsers,
   makeSelectLoading,
   makeSelectError,
 } from 'containers/App/selectors';
 import { loadUsers } from 'containers/App/actions';
+import Img from 'components/Img';
 import saga from './saga';
+import Wrapper from './Wrapper';
+import UserList from './UserList';
+import UsersContainer from './UsersContainer';
 
 const key = 'users';
 
@@ -39,14 +42,25 @@ export function UsersPage({ loading, error, users, onLoadUsers }) {
   }
 
   if (users !== false) {
-    return users.map(user => (
-      <Link key={user.id} to={`users/${user.id}`}>
-        <div>{user.name}</div>
-        <div>
-          <img src={user.avatar} alt="" />
-        </div>
-      </Link>
-    ));
+    return (
+      <UsersContainer>
+        {users.map(user => (
+          <Wrapper key={user.id}>
+            <UserList key={user.id} to={`users/${user.id}`}>
+              <div>
+                <Img src={user.avatar} alt="" />
+              </div>
+              <h3>{user.name}</h3>
+              <div>Id:{user.id}</div>
+              <div>Created at: {user.createdAt}</div>
+              <div>Phone: {user.phone}</div>
+              <div>City: {user.city}</div>
+              <div>Role: {user.role}</div>
+            </UserList>
+          </Wrapper>
+        ))}
+      </UsersContainer>
+    );
   }
 
   return null;
